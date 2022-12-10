@@ -551,7 +551,12 @@ class Julia(object):
         expressions, only to execute statements.
         """
         # logger.debug("_call(%s)", src)
-        ans = self.api.jl_eval_string(src.encode('utf-8'))
+        try:
+            ans = self.api.jl_eval_string(src.encode('utf-8'))
+        except OSError as e:
+            logger.debug("Current self.api: {}".format(self.api))
+            logger.debug("Current src: {}".format
+            raise JuliaError("Error calling Julia: {}".format(e))
         self.check_exception(src)
 
         return ans
