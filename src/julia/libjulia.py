@@ -106,6 +106,7 @@ def set_libjulia(libjulia):
 
 
 def get_libjulia():
+    global _LIBJULIA
     return _LIBJULIA
 
 
