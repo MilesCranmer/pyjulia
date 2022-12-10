@@ -555,7 +555,7 @@ class Julia(object):
             ans = self.api.jl_eval_string(src.encode('utf-8'))
         except OSError as e:
             logger.debug("Current self.api: {}".format(self.api))
-            logger.debug("Current src: {}".format
+            logger.debug("Current src: {}".format(src))
             raise JuliaError("Error calling Julia: {}".format(e))
         self.check_exception(src)
 
